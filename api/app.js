@@ -4,6 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import postRoute from './routes/post.routes.js'; // Ensure you have the correct file extension
 import authRoute from './routes/auth.routes.js'; // Ensure you have the correct
+import testRoute from "./routes/test.route.js";
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cookieParser()); // for parsing cookies
 
 app.use("/api/post", postRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/test", testRoute);
 
 
 app.listen(8800, () => {
