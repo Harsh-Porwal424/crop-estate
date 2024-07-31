@@ -1,4 +1,5 @@
 import prisma from "../lib/prisma.js";
+import bcrypt from 'bcrypt';
 
 // Fetch all users
 export const getUsers = async (req, res) => {
@@ -34,7 +35,7 @@ export const getUser = async (req, res) => {
 export const updateUser = async (req, res) => {
     const id = req.params.id;
     const tokenUserId = req.userId;
-    const body = req.body;
+    const {password, avatar,  ...inputs} = req.body;
 
 
     if(id != tokenUserId){
@@ -42,10 +43,21 @@ export const updateUser = async (req, res) => {
     }
 
     const { name, email } = req.body;
+    let updatedPassword = null;
     try {
+
+        if(password){
+            updatedPassword = await bcrypt.hash(password, 10);
+        }
+
         const updatedUser = await prisma.user.update({
             where: { id },
-            data: body,
+            data: {
+                ...inputs,
+                ...(updatedPassword && {password: updatedPassword  }),
+                ...(avatar && {avatar})
+
+            },
         });
         res.status(200).json(updatedUser);
     } catch (error) {
@@ -56,10 +68,17 @@ export const updateUser = async (req, res) => {
 
 // Delete a user by ID
 export const deleteUser = async (req, res) => {
-    const { id } = req.params;
+
+    const id = req.params.id;
+    const tokenUserId = req.userId;
+
+    if(id != tokenUserId){
+        return res.status(403).json({ message: "Unauthorized to update this user" });
+    }
+
     try {
         await prisma.user.delete({
-            where: { id: Number(id) }
+            where: { id }
         });
         res.status(200).json({ message: "User deleted successfully" });
     } catch (error) {
