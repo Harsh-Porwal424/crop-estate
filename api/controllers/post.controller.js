@@ -19,7 +19,10 @@ export const getPosts = async (req, res) => {
                   },
             }
         );
-        res.status(200).json(posts);
+        // setTimeout(() => {
+            res.status(200).json(posts);
+        // }, 1000);
+        
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "An error occurred while fetching posts" });
