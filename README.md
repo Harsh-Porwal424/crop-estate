@@ -1,3 +1,65 @@
+
+# Crop Estate: Explore Real Estate & Find Your Perfect Property
+
+Welcome to **Crop Estate**, your go-to platform for exploring real estate and finding the perfect property. With a wide range of options and seamless user experience, you can discover your dream home or business space easily.
+
+## Project Structure
+
+- **Backend**: Handles the server-side logic and database.
+- **Frontend**: The user-facing client application.
+- **Socket**: Manages real-time communication using WebSockets.
+
+## Instructions to Run the Project
+
+### Backend
+
+1. Navigate to the `api` directory:
+   ```bash
+   cd api
+   ```
+
+2. Start the backend using Docker:
+   ```bash
+   docker compose up
+   ```
+
+### Frontend
+
+1. Navigate to the `client` directory:
+   ```bash
+   cd client
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Socket (Real-time functionality)
+
+1. Navigate to the `socket` directory:
+   ```bash
+   cd socket
+   ```
+
+2. Run the socket server using Nodemon:
+   ```bash
+   nodemon app.js
+   ```
+
+## Technologies Used
+
+- **Backend**: Node.js, Express
+- **Frontend**: React, Next.js
+- **Database**: MongoDB
+- **Socket**: Socket.IO for real-time communication
+- **Containerization**: Docker
+
 ## Screenshots
 ![Screenshot 2024-09-18 at 2 32 52 PM](https://github.com/user-attachments/assets/1cf96518-eaa8-4c99-a4bb-a7d347278fef)
 ![Screenshot 2024-09-18 at 2 34 11 PM](https://github.com/user-attachments/assets/7866b9af-90f0-4897-b345-60445d8b2e14)
