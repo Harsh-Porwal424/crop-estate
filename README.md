@@ -1,7 +1,7 @@
 
-# Crop Estate: Explore Real Estate & Find Your Perfect Property
+# SmartEstate: Explore Real Estate & Find Your Perfect Property
 
-Welcome to **Crop Estate**, your go-to platform for exploring real estate and finding the perfect property. With a wide range of options and seamless user experience, you can discover your dream home or business space easily.
+Welcome to **SmartEstate**, your go-to platform for exploring real estate and finding the perfect property. With a wide range of options and seamless user experience, you can discover your dream home or business space easily.
 
 ## Project Structure
 
